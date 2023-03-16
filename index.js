@@ -24,9 +24,9 @@ app.post("/api", (req, res) => {
   const body = req.body;
   if (!items.includes(body.item)) {
     items.push(body.item);
-    // axios.post(prismaticWebhookTrigger, {
-    //   item: body.item,
-    // }).then((result) => console.log(result)).catch((err) => console.log(err));
+    axios.post(prismaticWebhookTrigger, {
+      item: body.item,
+    }).then((result) => console.log(result)).catch((err) => console.log(err));
     res.json({data: `${body.item} is created!`});
   } else {
     res.json({data: `${body.item} is already exist!`});
